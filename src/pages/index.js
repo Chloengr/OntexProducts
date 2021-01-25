@@ -9,12 +9,13 @@ const pageStyles = {
 };
 
 const IndexPage = () => {
-  const [productList, setproductList] = React.useState(products);
+  const [productList, setProductList] = React.useState(products);
 
   function handleRemove(sku) {
     const newList = productList.filter((product) => product.sku !== sku);
-    setproductList(newList);
+    setProductList(newList);
   }
+  
   return (
     <main style={pageStyles}>
       <h1>Ontex Products : </h1>
