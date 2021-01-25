@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import Item from "./Item";
 
@@ -15,14 +15,19 @@ const Content = styled.div`
 
 const Total = styled.p`
   color: #1890ff;
+`;
 
-`
-
-const ItemsList = ({ products, onDelete }) => {
+function getTotalProductPrice(products) {
   let total = 0;
   for (const product in products) {
     total += products[product].prix.value;
   }
+  return total;
+}
+
+const ItemsList = ({ products, onDelete }) => {
+  const total = useMemo(() => getTotalProductPrice(products), [products]);
+
   return (
     <Wrapper>
       <Content>
@@ -30,7 +35,9 @@ const ItemsList = ({ products, onDelete }) => {
           <Item key={product.id} product={product} onDelete={onDelete} />
         ))}
       </Content>
-      <Total>Total : <strong>{total} EUR</strong></Total>
+      <Total>
+        Total : <strong>{total} EUR</strong>
+      </Total>
     </Wrapper>
   );
 };
