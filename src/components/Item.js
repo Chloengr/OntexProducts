@@ -12,7 +12,7 @@ const Card = styled.div`
   background-color: #ffffff;
   box-shadow: 0 2px 4px 0 rgba(210, 210, 210, 0.38);
   padding: 40px 0;
-  margin: 0 30px 20px 30px ;
+  margin: 0 30px 20px 30px;
 `;
 
 const DeleteButton = styled.button`
@@ -22,12 +22,12 @@ const DeleteButton = styled.button`
   border: 1px solid #1890ff;
   color: #1890ff;
   background-color: #fff;
-`
+`;
 
 const Item = ({ product, onDelete }) => {
   return (
     <Card>
-      <img src={product.image} alt='product'/>
+      <img src={product.image} alt="product" />
       <h3>{product.name}</h3>
       <p>{product.sku}</p>
       <span>{product.description}</span>
